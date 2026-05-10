@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Workflow Guard Rules",
+  "description": "Configuration for workflow-guard.mjs",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Master switch for the guard system"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Quick disable switch (takes precedence over enabled)"
+    },
+    "requireStartBeforeEdit": {
+      "type": "boolean",
+      "default": true,
+      "description": "Require advance.mjs start before editing workflow content"
+    },
+    "requireArtifactLocation": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enforce artifacts are written to correct directory"
+    },
+    "requireGateFlow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enforce gate evaluation before proceeding to next step"
+    },
+    "excludedPaths": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": ["node_modules", ".git", "dist", "build"],
+      "description": "Paths to exclude from guard checks"
+    },
+    "messageTemplate": {
+      "type": "object",
+      "description": "Custom error messages",
+      "properties": {
+        "notInWorkflow": { "type": "string" },
+        "noStartCalled": { "type": "string" },
+        "wrongArtifactLocation": { "type": "string" },
+        "gateNotCompleted": { "type": "string" },
+        "generalViolation": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

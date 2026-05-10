@@ -1,0 +1,19 @@
+{
+  "name": "workflow",
+  "description": "Evolvable workflow orchestration engine for Claude Code.",
+  "owner": {
+    "name": "nooooooom",
+    "email": "nooooooom@163.com"
+  },
+  "plugins": [
+    {
+      "name": "workflow",
+      "description": "将复杂任务拆分为多步骤工作流，带质量门控、中断恢复、生命周期钩子。支持依赖 DAG、并行执行、Coordinator 模式和多智能体通信。",
+      "category": "developer-tools",
+      "source": "./",
+      "homepage": "https://github.com/nooooooom/workflow.git",
+      "skills": ["./"],
+      "strict": false
+    }
+  ]
+}

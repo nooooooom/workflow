@@ -1,0 +1,29 @@
+{
+  "$schema": "./guard-rules.schema.json",
+  "enabled": true,
+  "disabled": false,
+  "requireStartBeforeEdit": true,
+  "requireArtifactLocation": true,
+  "requireGateFlow": true,
+  "excludedPaths": [
+    "node_modules",
+    ".git",
+    "dist",
+    "build",
+    "coverage",
+    ".next",
+    ".nuxt",
+    "out",
+    "vendor",
+    "__pycache__",
+    ".venv",
+    "venv"
+  ],
+  "messageTemplate": {
+    "notInWorkflow": "Not in a workflow directory. Operation allowed.",
+    "noStartCalled": "⚠️ Workflow Guard: You must call `advance.mjs start` before editing workflow content.\n\nRun: node engine/advance.mjs start --dir <workflow-dir> --step <step-id>",
+    "wrongArtifactLocation": "⚠️ Workflow Guard: Artifacts must be written to the workflow's artifacts/ directory.\n\nExpected path: {workflow-dir}/artifacts/{step-artifact}",
+    "gateNotCompleted": "⚠️ Workflow Guard: Cannot proceed to next step until Gate passes.\n\nRun: node engine/gate.mjs result --dir <workflow-dir> --step <step-id> --result PASS|FAIL",
+    "generalViolation": "⚠️ Workflow Guard: {message}\n\nSee docs/guard-system.md for help."
+  }
+}

@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# Workflow runtime state (user-generated, not shipped)
+.workflows/
+
+# Build artifacts
+/dist/*
+!/dist/workflow.zip
+/tmp/
+*.log
+
+# Local agent and Claude Code state
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+AGENTS.override.md
+.claude/
