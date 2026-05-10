@@ -29,6 +29,76 @@ Workflow 是一个工作流编排系统。它解决的核心问题是：**AI 执
 
 ---
 
+## 安装
+
+**Claude Code**
+
+```bash
+npx skills add nooooooom/workflow -a claude-code -g -y
+```
+
+**Generic agents**（Codex、OpenCode、Pi 等读取 `~/.agents/` 的工具）
+
+```bash
+npx skills add nooooooom/workflow -a '*' -g -y
+```
+
+**手动安装**
+
+下载 [workflow.zip](https://github.com/nooooooom/workflow/releases/latest/download/workflow.zip)，解压到 `~/.claude/skills/workflow/` 即可。
+
+安装完成后，`/workflow` 命令即可使用。
+
+---
+
+## 快速开始
+
+### 从目标自动生成工作流
+
+最简单的方式——告诉编排器你要做什么，它会自动规划步骤：
+
+```
+/workflow 实现一个 JWT 认证中间件
+```
+
+编排器会：
+1. 分析目标，生成步骤拆分（需求分析 → 设计 → 实现 → 测试 → 文档）
+2. 创建 `.workflows/jwt-auth/` 目录和所有文件
+3. 开始逐步执行，每步完成后自动质量审查
+
+### 从模板创建工作流
+
+如果你有现成的工作流模板：
+
+```
+/workflow 使用 .workflows/code-review 审查当前分支
+```
+
+### 恢复中断的工作流
+
+关掉终端后重新打开，继续之前的工作流：
+
+```
+/workflow 继续
+```
+
+### 查看工作流状态
+
+```
+/workflow 查看状态
+```
+
+### 常用命令速览
+
+| 命令 | 说明 |
+|------|------|
+| `/workflow <目标描述>` | 从目标自动生成并执行工作流 |
+| `/workflow 继续` | 恢复中断的工作流 |
+| `/workflow 查看状态` | 查看当前工作流进度 |
+| `/workflow 列出所有工作流` | 列出所有工作流模板和运行实例 |
+
+---
+
 ## 核心概念
 
 ### 工作流 = 模板 + 运行实例
