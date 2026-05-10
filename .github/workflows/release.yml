@@ -18,8 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.tag || github.ref }}
-          fetch-depth: 0
+          ref: ${{ github.event.inputs.tag || github.ref_name }}
+          fetch-tags: true
 
       - name: Resolve tag name
         id: tag
